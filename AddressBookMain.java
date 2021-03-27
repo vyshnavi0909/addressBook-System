@@ -37,23 +37,13 @@ public class AddressBookMain {
     //providing options for user to select "what to do next?"
     static void Options(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("What action do you want to perform next? \n1).Add another person details \n2).Edit the existing person details. \n3).For exiting.");
+        System.out.println("What action do you want to perform next? \n1).Add another person details \n2).Edit the existing person details. \n3).Delete the person details. \n4).For exiting.");
         d = scan.nextInt();
     }
 
-    //providing another option after deleting the object/person details
-    // static void AfterDeleteOption(){
-    //     Scanner newOpt = new Scanner(System.in);
-    //     System.out.println("Do you want to add new person's details?\n 1).Yes \n 2).No");
-    //     int opt = newOpt.nextInt();
-    //     if(opt == 1){
-    //         AddressBookMain.inputCall();
-    //     }
-    // }
-
     static void ToChangeDetails(Contacts obj){
         Scanner uc = new Scanner(System.in);
-        System.out.println("Which one do you want to change? \n 1).First Name \n 2).Last Name \n 3).City \n 4).State \n 5).Zip \n 6).Phone Number \n 7).Email ID \n");
+        System.out.println("Which one do you want to change? \n1).First Name \n2).Last Name \n3).City \n4).State \n5).Zip \n6).Phone Number \n7).Email ID \n");
         int userChoice = uc.nextInt();
     
         //asking user for new value for selected detail
@@ -121,7 +111,7 @@ public class AddressBookMain {
         secondPerson=person2.firstName;
         
         AddressBookMain.Options(); //selecting options
-        while(d<3){
+        while(d<4){
             
             //switch-case for checking users selected option
             switch(d){
@@ -135,7 +125,7 @@ public class AddressBookMain {
                 //asking user which detail to edit
                 
                 Scanner input = new Scanner(System.in);
-                System.out.println("Whose details u wanna change? \n 1)."+ firstPerson + "\n2)."+ secondPerson);
+                System.out.println("Whose details u wanna change? \n1)."+ firstPerson + "\n2)."+ secondPerson);
 
                 int opt1 = input.nextInt();
                 if(opt1 == 1){
@@ -144,7 +134,19 @@ public class AddressBookMain {
                     AddressBookMain.ToChangeDetails(person2);
                 }
                 break;
-
+            
+            case 3: // delete person details
+                Scanner inp = new Scanner(System.in);
+                System.out.println("Whose details u wanna change? \n1)."+ firstPerson + "\n2)."+ secondPerson);
+                int opt = inp.nextInt();
+                if(opt == 1){
+                    person = null;
+                }
+                if(opt == 2){
+                    person2 = null;
+                }
+                 
+            break;
             default:
                 System.out.println("Invalid");
                 break;
